@@ -1,0 +1,37 @@
+<aside class="w-1/5 min-h-full bg-w-dark text-w-pale flex flex-col py-8 px-4 gap-2">
+  <p class="text-xs uppercase tracking-widest text-w-mid font-semibold mb-4 px-2">Steps</p>
+
+  @for (step of steps; track step.id; let i = $index) {
+    @let isActive = navigationStore.currentStepIndex() === i;
+    @let isCompleted = navigationStore.currentStepIndex() > i;
+
+    <button
+      (click)="navigationStore.goToStep(i)"
+      class="flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 text-left cursor-pointer w-full"
+      [class.bg-w-mid]="isActive"
+      [class.text-w-dark]="isActive"
+      [class.font-semibold]="isActive"
+      [class.text-w-pale]="!isActive"
+      [class.hover:bg-white/10]="!isActive"
+    >
+      <span
+        class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all"
+        [class.bg-w-dark]="isActive"
+        [class.border-w-dark]="isActive"
+        [class.text-w-mid]="isActive"
+        [class.bg-w-mid]="isCompleted && !isActive"
+        [class.border-w-mid]="isCompleted && !isActive"
+        [class.text-w-dark]="isCompleted && !isActive"
+        [class.border-w-pale/40]="!isActive && !isCompleted"
+        [class.text-w-pale/60]="!isActive && !isCompleted"
+      >
+        @if (isCompleted) {
+          ✓
+        } @else {
+          {{ i + 1 }}
+        }
+      </span>
+      <span class="text-sm">{{ step.labelKey | translate }}</span>
+    </button>
+  }
+</aside>
