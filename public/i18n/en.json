@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "logo": "InsureMe"
+  },
+  "wizard": {
+    "steps": {
+      "car": { "title": "Car Data", "subtitle": "Enter your vehicle details" },
+      "personal": { "title": "Personal Data", "subtitle": "Tell us about yourself" },
+      "coverage": { "title": "Coverages", "subtitle": "Choose your protection" },
+      "offer": { "title": "Your Offer", "subtitle": "Review your selection" }
+    }
+  },
+  "car": {
+    "title": "Vehicle Information",
+    "make": "Car Brand",
+    "model": "Model",
+    "year": "Year of Manufacture",
+    "licensePlate": "License Plate",
+    "fuelType": "Fuel Type",
+    "fuel": {
+      "petrol": "Petrol",
+      "diesel": "Diesel",
+      "electric": "Electric",
+      "hybrid": "Hybrid"
+    },
+    "mileage": "Annual Mileage (km)"
+  },
+  "personal": {
+    "title": "Personal Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "birthDate": "Date of Birth",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "address": "Street & Number",
+    "city": "City",
+    "zipCode": "Zip Code"
+  },
+  "coverage": {
+    "title": "Insurance Coverages",
+    "subtitle": "Select the coverages that fit your needs",
+    "required": "Required",
+    "perMonth": "/ month",
+    "coverages": {
+      "liability": {
+        "name": "Third-Party Liability",
+        "description": "Covers damage you cause to others. Required by law."
+      },
+      "partial": {
+        "name": "Partial Coverage",
+        "description": "Covers theft, weather damage, animal collisions, and fire."
+      },
+      "full": {
+        "name": "Full Coverage",
+        "description": "All partial coverage benefits plus collision damage to your own car."
+      },
+      "roadside": {
+        "name": "Roadside Assistance",
+        "description": "24/7 help if your car breaks down anywhere in Europe."
+      },
+      "driverAccident": {
+        "name": "Driver Accident Insurance",
+        "description": "Compensation for injuries sustained by the driver in an accident."
+      }
+    }
+  },
+  "offer": {
+    "title": "Your Insurance Offer",
+    "subtitle": "Review your selected options before submitting",
+    "carSection": "Vehicle Details",
+    "personalSection": "Personal Details",
+    "coverageSection": "Selected Coverages",
+    "totalPrice": "Total Monthly Premium",
+    "labels": {
+      "make": "Brand",
+      "model": "Model",
+      "year": "Year",
+      "licensePlate": "License Plate",
+      "fuelType": "Fuel Type",
+      "mileage": "Annual Mileage",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "birthDate": "Date of Birth",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "city": "City",
+      "zipCode": "Zip Code"
+    }
+  },
+  "common": {
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Get Your Quote",
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address"
+  },
+  "footer": {
+    "tagline": "Simple. Transparent. Reliable insurance.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "copyright": "© 2025 InsureMe. All rights reserved."
+  }
+}

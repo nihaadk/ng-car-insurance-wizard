@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "logo": "InsureMe"
+  },
+  "wizard": {
+    "steps": {
+      "car": { "title": "Fahrzeugdaten", "subtitle": "Geben Sie Ihre Fahrzeugdaten ein" },
+      "personal": { "title": "Persönliche Daten", "subtitle": "Erzählen Sie uns von sich" },
+      "coverage": { "title": "Deckungen", "subtitle": "Wählen Sie Ihren Schutz" },
+      "offer": { "title": "Ihr Angebot", "subtitle": "Überprüfen Sie Ihre Auswahl" }
+    }
+  },
+  "car": {
+    "title": "Fahrzeuginformationen",
+    "make": "Automarke",
+    "model": "Modell",
+    "year": "Baujahr",
+    "licensePlate": "Kennzeichen",
+    "fuelType": "Kraftstoffart",
+    "fuel": {
+      "petrol": "Benzin",
+      "diesel": "Diesel",
+      "electric": "Elektro",
+      "hybrid": "Hybrid"
+    },
+    "mileage": "Jährliche Laufleistung (km)"
+  },
+  "personal": {
+    "title": "Persönliche Informationen",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "birthDate": "Geburtsdatum",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefonnummer",
+    "address": "Straße & Hausnummer",
+    "city": "Stadt",
+    "zipCode": "Postleitzahl"
+  },
+  "coverage": {
+    "title": "Versicherungsdeckungen",
+    "subtitle": "Wählen Sie die Deckungen, die zu Ihnen passen",
+    "required": "Pflicht",
+    "perMonth": "/ Monat",
+    "coverages": {
+      "liability": {
+        "name": "Haftpflichtversicherung",
+        "description": "Deckt Schäden, die Sie anderen verursachen. Gesetzlich vorgeschrieben."
+      },
+      "partial": {
+        "name": "Teilkasko",
+        "description": "Deckt Diebstahl, Wetterschäden, Tierkollisionen und Feuer."
+      },
+      "full": {
+        "name": "Vollkasko",
+        "description": "Alle Teilkaskovorteile plus Kollisionsschäden an Ihrem eigenen Fahrzeug."
+      },
+      "roadside": {
+        "name": "Pannenhilfe",
+        "description": "24/7 Hilfe, wenn Ihr Auto irgendwo in Europa liegen bleibt."
+      },
+      "driverAccident": {
+        "name": "Fahrerunfallschutz",
+        "description": "Entschädigung für Verletzungen des Fahrers bei einem Unfall."
+      }
+    }
+  },
+  "offer": {
+    "title": "Ihr Versicherungsangebot",
+    "subtitle": "Überprüfen Sie Ihre gewählten Optionen vor der Einreichung",
+    "carSection": "Fahrzeugdaten",
+    "personalSection": "Persönliche Daten",
+    "coverageSection": "Gewählte Deckungen",
+    "totalPrice": "Monatliche Gesamtprämie",
+    "labels": {
+      "make": "Marke",
+      "model": "Modell",
+      "year": "Baujahr",
+      "licensePlate": "Kennzeichen",
+      "fuelType": "Kraftstoffart",
+      "mileage": "Jährliche Laufleistung",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "birthDate": "Geburtsdatum",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "address": "Adresse",
+      "city": "Stadt",
+      "zipCode": "Postleitzahl"
+    }
+  },
+  "common": {
+    "next": "Weiter",
+    "previous": "Zurück",
+    "submit": "Angebot erhalten",
+    "required": "Dieses Feld ist erforderlich",
+    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  },
+  "footer": {
+    "tagline": "Einfach. Transparent. Zuverlässige Versicherung.",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "contact": "Kontakt",
+    "copyright": "© 2025 InsureMe. Alle Rechte vorbehalten."
+  }
+}
