@@ -1,0 +1,103 @@
+<div class="max-w-2xl mx-auto">
+  <h2 class="text-2xl font-bold text-w-dark mb-1">{{ 'car.title' | translate }}</h2>
+  <p class="text-w-dark/60 mb-8">{{ 'wizard.steps.car.subtitle' | translate }}</p>
+
+  <form [formRoot]="carForm" (submit)="onNext()" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <!-- Make -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-w-dark">{{ 'car.make' | translate }}</label>
+      <input
+        type="text"
+        [formField]="carForm.make"
+        class="input-field"
+        [class.input-error]="carForm.make().touched() && carForm.make().invalid()"
+        placeholder="e.g. BMW"
+      />
+      @if (carForm.make().touched() && carForm.make().invalid()) {
+        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
+      }
+    </div>
+
+    <!-- Model -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-w-dark">{{ 'car.model' | translate }}</label>
+      <input
+        type="text"
+        [formField]="carForm.model"
+        class="input-field"
+        [class.input-error]="carForm.model().touched() && carForm.model().invalid()"
+        placeholder="e.g. 3 Series"
+      />
+      @if (carForm.model().touched() && carForm.model().invalid()) {
+        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
+      }
+    </div>
+
+    <!-- Year -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-w-dark">{{ 'car.year' | translate }}</label>
+      <input
+        type="number"
+        [formField]="carForm.year"
+        class="input-field"
+        [class.input-error]="carForm.year().touched() && carForm.year().invalid()"
+        placeholder="e.g. 2020"
+      />
+      @if (carForm.year().touched() && carForm.year().invalid()) {
+        <span class="text-red-600 text-xs">
+          @for (err of carForm.year().errors(); track err.kind) {
+            @if (err.kind === 'min') { Year must be 1980 or later. }
+            @if (err.kind === 'max') { Year cannot be in the future. }
+          }
+        </span>
+      }
+    </div>
+
+    <!-- License Plate -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-w-dark">{{ 'car.licensePlate' | translate }}</label>
+      <input
+        type="text"
+        [formField]="carForm.licensePlate"
+        class="input-field"
+        placeholder="e.g. M-AB 1234"
+      />
+    </div>
+
+    <!-- Fuel Type -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-w-dark">{{ 'car.fuelType' | translate }}</label>
+      <select
+        [formField]="carForm.fuelType"
+        class="input-field"
+        [class.input-error]="carForm.fuelType().touched() && carForm.fuelType().invalid()"
+      >
+        <option value="" disabled>— select —</option>
+        @for (ft of fuelTypes; track ft) {
+          <option [value]="ft">{{ 'car.fuel.' + ft | translate }}</option>
+        }
+      </select>
+      @if (carForm.fuelType().touched() && carForm.fuelType().invalid()) {
+        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
+      }
+    </div>
+
+    <!-- Mileage -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold text-w-dark">{{ 'car.mileage' | translate }}</label>
+      <input
+        type="number"
+        [formField]="carForm.mileage"
+        class="input-field"
+        placeholder="e.g. 15000"
+      />
+    </div>
+
+    <!-- Navigation -->
+    <div class="col-span-full flex justify-end mt-6">
+      <button type="submit" class="btn-primary">
+        {{ 'common.next' | translate }} →
+      </button>
+    </div>
+  </form>
+</div>
