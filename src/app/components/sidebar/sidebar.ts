@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { WIZARD_STEPS } from '../../config/wizard.config';
-import { NavigationStore } from '../../store/navigation.store';
+import { Store } from '../../store/store';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +9,6 @@ import { NavigationStore } from '../../store/navigation.store';
   templateUrl: './sidebar.html',
 })
 export class Sidebar {
-  protected navigationStore = inject(NavigationStore);
+  protected store = inject(Store);
   protected steps = WIZARD_STEPS;
 }

@@ -1,19 +1,13 @@
 import { patchState, signalStoreFeature, withMethods, withState } from '@ngrx/signals';
+import { CarState } from '../models/car.model';
 
-export interface CarState {
-  make: string;
-  model: string;
-  year: number | null;
-  licensePlate: string;
-  fuelType: string;
-  mileage: number | null;
-}
+export type { CarState };
 
 const initialCarState: CarState = {
   make: '',
   model: '',
   year: null,
-  licensePlate: '',
+  horsepower: null,
   fuelType: '',
   mileage: null,
 };

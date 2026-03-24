@@ -1,9 +1,19 @@
-<footer class="bg-w-dark text-w-pale/70 text-sm py-4 px-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-  <p class="text-w-mid font-medium">{{ 'footer.tagline' | translate }}</p>
-  <div class="flex items-center gap-4">
-    <a href="#" class="hover:text-w-mid transition-colors">{{ 'footer.privacy' | translate }}</a>
-    <a href="#" class="hover:text-w-mid transition-colors">{{ 'footer.terms' | translate }}</a>
-    <a href="#" class="hover:text-w-mid transition-colors">{{ 'footer.contact' | translate }}</a>
+<footer class="bg-base-100 text-base-content border-t border-base-300 py-4 px-6">
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+    <p class="text-primary font-medium">{{ 'footer.tagline' | translate }}</p>
+
+    <nav class="flex items-center gap-5">
+      <a href="#" class="link link-hover text-base-content/50 hover:text-base-content transition-colors">
+        {{ 'footer.privacy' | translate }}
+      </a>
+      <a href="#" class="link link-hover text-base-content/50 hover:text-base-content transition-colors">
+        {{ 'footer.terms' | translate }}
+      </a>
+      <a href="#" class="link link-hover text-base-content/50 hover:text-base-content transition-colors">
+        {{ 'footer.contact' | translate }}
+      </a>
+    </nav>
+
+    <p class="text-base-content/40">{{ 'footer.copyright' | translate }}</p>
   </div>
-  <p>{{ 'footer.copyright' | translate }}</p>
 </footer>

@@ -1,133 +1,132 @@
-<div class="max-w-2xl mx-auto">
-  <h2 class="text-2xl font-bold text-w-dark mb-1">{{ 'personal.title' | translate }}</h2>
-  <p class="text-w-dark/60 mb-8">{{ 'wizard.steps.personal.subtitle' | translate }}</p>
+<div class="max-w-xl mx-auto">
+  <form id="personal-form" [formRoot]="personalForm" (submit)="onNext()" class="flex flex-col gap-5">
 
-  <form [formRoot]="personalForm" (submit)="onNext()" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-    <!-- First Name -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.firstName' | translate }}</label>
-      <input
-        type="text"
-        [formField]="personalForm.firstName"
-        class="input-field"
-        [class.input-error]="personalForm.firstName().touched() && personalForm.firstName().invalid()"
-        placeholder="Anna"
-      />
-      @if (personalForm.firstName().touched() && personalForm.firstName().invalid()) {
-        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
-      }
-    </div>
+    <!-- Contact Information -->
+    <div class="card bg-base-100 shadow-sm border border-base-300">
+      <div class="card-body gap-5">
+        <h3 class="text-sm font-bold text-base-content/50 uppercase tracking-widest -mb-1">
+          {{ 'personal.contactGroup' | translate }}
+        </h3>
 
-    <!-- Last Name -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.lastName' | translate }}</label>
-      <input
-        type="text"
-        [formField]="personalForm.lastName"
-        class="input-field"
-        [class.input-error]="personalForm.lastName().touched() && personalForm.lastName().invalid()"
-        placeholder="Müller"
-      />
-      @if (personalForm.lastName().touched() && personalForm.lastName().invalid()) {
-        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
-      }
-    </div>
-
-    <!-- Birth Date -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.birthDate' | translate }}</label>
-      <input
-        type="date"
-        [formField]="personalForm.birthDate"
-        class="input-field"
-        [class.input-error]="personalForm.birthDate().touched() && personalForm.birthDate().invalid()"
-      />
-      @if (personalForm.birthDate().touched() && personalForm.birthDate().invalid()) {
-        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
-      }
-    </div>
-
-    <!-- Email -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.email' | translate }}</label>
-      <input
-        type="email"
-        [formField]="personalForm.email"
-        class="input-field"
-        [class.input-error]="personalForm.email().touched() && personalForm.email().invalid()"
-        placeholder="anna@example.com"
-      />
-      @if (personalForm.email().touched() && personalForm.email().invalid()) {
-        @for (err of personalForm.email().errors(); track err.kind) {
-          @if (err.kind === 'required') {
-            <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
-          } @else if (err.kind === 'email') {
-            <span class="text-red-600 text-xs">{{ 'common.invalidEmail' | translate }}</span>
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.firstName' | translate }}</label>
+          <input
+            type="text"
+            [formField]="personalForm.firstName"
+            class="input w-full"
+            [class.input-error]="personalForm.firstName().touched() && personalForm.firstName().invalid()"
+            placeholder="Anna"
+          />
+          @if (personalForm.firstName().touched() && personalForm.firstName().invalid()) {
+            <span class="text-xs text-error">{{ 'common.required' | translate }}</span>
           }
-        }
-      }
-    </div>
+        </div>
 
-    <!-- Phone -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.phone' | translate }}</label>
-      <input
-        type="tel"
-        [formField]="personalForm.phone"
-        class="input-field"
-        placeholder="+49 89 123456"
-      />
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.lastName' | translate }}</label>
+          <input
+            type="text"
+            [formField]="personalForm.lastName"
+            class="input w-full"
+            [class.input-error]="personalForm.lastName().touched() && personalForm.lastName().invalid()"
+            placeholder="Müller"
+          />
+          @if (personalForm.lastName().touched() && personalForm.lastName().invalid()) {
+            <span class="text-xs text-error">{{ 'common.required' | translate }}</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.birthDate' | translate }}</label>
+          <input
+            type="date"
+            [formField]="personalForm.birthDate"
+            class="input w-full"
+            [class.input-error]="personalForm.birthDate().touched() && personalForm.birthDate().invalid()"
+          />
+          @if (personalForm.birthDate().touched() && personalForm.birthDate().invalid()) {
+            <span class="text-xs text-error">{{ 'common.required' | translate }}</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.email' | translate }}</label>
+          <input
+            type="email"
+            [formField]="personalForm.email"
+            class="input w-full"
+            [class.input-error]="personalForm.email().touched() && personalForm.email().invalid()"
+            placeholder="anna@example.com"
+          />
+          @if (personalForm.email().touched() && personalForm.email().invalid()) {
+            @for (err of personalForm.email().errors(); track err.kind) {
+              @if (err.kind === 'required') {
+                <span class="text-xs text-error">{{ 'common.required' | translate }}</span>
+              } @else if (err.kind === 'email') {
+                <span class="text-xs text-error">{{ 'common.invalidEmail' | translate }}</span>
+              }
+            }
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.phone' | translate }}</label>
+          <input
+            type="tel"
+            [formField]="personalForm.phone"
+            class="input w-full"
+            placeholder="+49 89 123456"
+          />
+        </div>
+      </div>
     </div>
 
     <!-- Address -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.address' | translate }}</label>
-      <input
-        type="text"
-        [formField]="personalForm.address"
-        class="input-field"
-        placeholder="Maximilianstr. 1"
-      />
+    <div class="card bg-base-100 shadow-sm border border-base-300">
+      <div class="card-body gap-5">
+        <h3 class="text-sm font-bold text-base-content/50 uppercase tracking-widest -mb-1">
+          {{ 'personal.addressGroup' | translate }}
+        </h3>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.address' | translate }}</label>
+          <input
+            type="text"
+            [formField]="personalForm.address"
+            class="input w-full"
+            placeholder="Maximilianstr. 1"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.city' | translate }}</label>
+          <input
+            type="text"
+            [formField]="personalForm.city"
+            class="input w-full"
+            [class.input-error]="personalForm.city().touched() && personalForm.city().invalid()"
+            placeholder="München"
+          />
+          @if (personalForm.city().touched() && personalForm.city().invalid()) {
+            <span class="text-xs text-error">{{ 'common.required' | translate }}</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <label class="text-sm font-semibold text-base-content">{{ 'personal.zipCode' | translate }}</label>
+          <input
+            type="text"
+            [formField]="personalForm.zipCode"
+            class="input w-full"
+            [class.input-error]="personalForm.zipCode().touched() && personalForm.zipCode().invalid()"
+            placeholder="80331"
+          />
+          @if (personalForm.zipCode().touched() && personalForm.zipCode().invalid()) {
+            <span class="text-xs text-error">{{ 'common.required' | translate }}</span>
+          }
+        </div>
+      </div>
     </div>
 
-    <!-- City -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.city' | translate }}</label>
-      <input
-        type="text"
-        [formField]="personalForm.city"
-        class="input-field"
-        [class.input-error]="personalForm.city().touched() && personalForm.city().invalid()"
-        placeholder="München"
-      />
-      @if (personalForm.city().touched() && personalForm.city().invalid()) {
-        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
-      }
-    </div>
-
-    <!-- Zip Code -->
-    <div class="flex flex-col gap-1">
-      <label class="text-sm font-semibold text-w-dark">{{ 'personal.zipCode' | translate }}</label>
-      <input
-        type="text"
-        [formField]="personalForm.zipCode"
-        class="input-field"
-        [class.input-error]="personalForm.zipCode().touched() && personalForm.zipCode().invalid()"
-        placeholder="80331"
-      />
-      @if (personalForm.zipCode().touched() && personalForm.zipCode().invalid()) {
-        <span class="text-red-600 text-xs">{{ 'common.required' | translate }}</span>
-      }
-    </div>
-
-    <!-- Navigation -->
-    <div class="col-span-full flex justify-between mt-6">
-      <button type="button" (click)="onPrev()" class="btn-secondary">
-        ← {{ 'common.previous' | translate }}
-      </button>
-      <button type="submit" class="btn-primary">
-        {{ 'common.next' | translate }} →
-      </button>
-    </div>
   </form>
 </div>

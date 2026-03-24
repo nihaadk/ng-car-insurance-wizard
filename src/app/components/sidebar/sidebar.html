@@ -1,37 +1,52 @@
-<aside class="w-1/5 min-h-full bg-w-dark text-w-pale flex flex-col py-8 px-4 gap-2">
-  <p class="text-xs uppercase tracking-widest text-w-mid font-semibold mb-4 px-2">Steps</p>
+<aside class="bg-base-100 text-base-content w-64 min-h-full flex flex-col py-6 px-3 border-r border-base-300">
+  <div class="px-3 mb-6">
+    <p class="text-xs uppercase tracking-widest text-base-content/40 font-semibold">{{ 'sidebar.progress' | translate }}</p>
+  </div>
 
-  @for (step of steps; track step.id; let i = $index) {
-    @let isActive = navigationStore.currentStepIndex() === i;
-    @let isCompleted = navigationStore.currentStepIndex() > i;
+  <ul class="menu w-full gap-1 relative p-0">
+    <!-- Vertical connector line -->
+    <div class="absolute left-[27px] top-10 bottom-10 w-px bg-base-300 pointer-events-none"></div>
 
-    <button
-      (click)="navigationStore.goToStep(i)"
-      class="flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 text-left cursor-pointer w-full"
-      [class.bg-w-mid]="isActive"
-      [class.text-w-dark]="isActive"
-      [class.font-semibold]="isActive"
-      [class.text-w-pale]="!isActive"
-      [class.hover:bg-white/10]="!isActive"
-    >
-      <span
-        class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all"
-        [class.bg-w-dark]="isActive"
-        [class.border-w-dark]="isActive"
-        [class.text-w-mid]="isActive"
-        [class.bg-w-mid]="isCompleted && !isActive"
-        [class.border-w-mid]="isCompleted && !isActive"
-        [class.text-w-dark]="isCompleted && !isActive"
-        [class.border-w-pale/40]="!isActive && !isCompleted"
-        [class.text-w-pale/60]="!isActive && !isCompleted"
-      >
-        @if (isCompleted) {
-          ✓
-        } @else {
-          {{ i + 1 }}
-        }
-      </span>
-      <span class="text-sm">{{ step.labelKey | translate }}</span>
-    </button>
-  }
+    @for (step of steps; track step.id; let i = $index) {
+      @let isActive = store.currentStepIndex() === i;
+      @let isCompleted = store.currentStepIndex() > i;
+
+      <li>
+        <a
+          (click)="store.goToStep(i)"
+          class="flex items-center gap-4 rounded-xl px-3 py-3 cursor-pointer transition-all duration-200"
+          [class.bg-primary/10]="isActive"
+          [class.text-primary]="isActive"
+          [class.opacity-40]="!isActive && !isCompleted"
+        >
+          <span
+            class="relative z-10 flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-200"
+            [class.bg-primary]="isActive"
+            [class.text-primary-content]="isActive"
+            [class.shadow-md]="isActive"
+            [class.border-2]="!isActive"
+            [class.border-primary/40]="isCompleted && !isActive"
+            [class.bg-primary/10]="isCompleted && !isActive"
+            [class.border-base-300]="!isCompleted && !isActive"
+          >
+            @if (isCompleted) {
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            } @else {
+              {{ i + 1 }}
+            }
+          </span>
+
+          <span class="text-sm flex-1 transition-all duration-200" [class.font-semibold]="isActive">
+            {{ step.labelKey | translate }}
+          </span>
+
+          @if (isActive) {
+            <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+          }
+        </a>
+      </li>
+    }
+  </ul>
 </aside>

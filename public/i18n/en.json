@@ -23,7 +23,10 @@
       "electric": "Electric",
       "hybrid": "Hybrid"
     },
-    "mileage": "Annual Mileage (km)"
+    "mileage": "Annual Mileage (km)",
+    "horsepower": "Horsepower (HP)",
+    "yearMin": "Year must be 1980 or later.",
+    "yearMax": "Year cannot be in the future."
   },
   "personal": {
     "title": "Personal Information",
@@ -34,12 +37,16 @@
     "phone": "Phone Number",
     "address": "Street & Number",
     "city": "City",
-    "zipCode": "Zip Code"
+    "zipCode": "Zip Code",
+    "contactGroup": "Contact Information",
+    "addressGroup": "Address"
   },
   "coverage": {
     "title": "Insurance Coverages",
     "subtitle": "Select the coverages that fit your needs",
     "required": "Required",
+    "total": "Total",
+    "deductible": "Deductible",
     "perMonth": "/ month",
     "coverages": {
       "liability": {
@@ -75,9 +82,10 @@
       "make": "Brand",
       "model": "Model",
       "year": "Year",
-      "licensePlate": "License Plate",
+      "horsepower": "Horsepower",
       "fuelType": "Fuel Type",
       "mileage": "Annual Mileage",
+      "horsepower": "Horsepower",
       "firstName": "First Name",
       "lastName": "Last Name",
       "birthDate": "Date of Birth",
@@ -94,6 +102,9 @@
     "submit": "Get Your Quote",
     "required": "This field is required",
     "invalidEmail": "Please enter a valid email address"
+  },
+  "sidebar": {
+    "progress": "Your Progress"
   },
   "footer": {
     "tagline": "Simple. Transparent. Reliable insurance.",

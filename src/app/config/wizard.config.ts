@@ -1,8 +1,6 @@
-export interface WizardStepConfig {
-  id: string;
-  path: string;
-  labelKey: string;
-}
+import { WizardStepConfig } from '../models/wizard-step.model';
+
+export type { WizardStepConfig };
 
 export const WIZARD_STEPS: WizardStepConfig[] = [
   { id: 'car', path: 'car', labelKey: 'wizard.steps.car.title' },

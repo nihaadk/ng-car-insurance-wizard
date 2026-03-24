@@ -1,13 +1,20 @@
-<div class="min-h-screen flex flex-col bg-w-pale">
-  <app-navbar />
+<div class="drawer lg:drawer-open h-screen">
+  <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
 
-  <div class="flex flex-1">
-    <app-sidebar />
+  <div class="drawer-content flex flex-col h-full overflow-hidden">
+    <app-navbar />
 
-    <main class="flex-1 p-8 md:p-12 overflow-y-auto">
+    <main class="flex-1 overflow-y-auto bg-base-200 p-6 lg:p-10">
       <router-outlet />
     </main>
+
+    <app-step-nav />
+
+    <app-footer />
   </div>
 
-  <app-footer />
+  <div class="drawer-side z-50">
+    <label for="sidebar-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+    <app-sidebar />
+  </div>
 </div>

@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { NavigationStore } from '../../store/navigation.store';
-import { WizardStore } from '../../store/wizard.store';
+import { Store } from '../../store/store';
 
 @Component({
   selector: 'app-offer-step',
@@ -9,11 +8,10 @@ import { WizardStore } from '../../store/wizard.store';
   templateUrl: './offer-step.html',
 })
 export class OfferStep {
-  protected wizardStore = inject(WizardStore);
-  protected navigationStore = inject(NavigationStore);
+  protected store = inject(Store);
 
   protected onPrev(): void {
-    this.navigationStore.prevStep();
+    this.store.prevStep();
   }
 
   protected onSubmit(): void {

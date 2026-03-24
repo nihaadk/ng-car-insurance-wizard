@@ -1,110 +1,105 @@
 <div class="max-w-2xl mx-auto">
-  <h2 class="text-2xl font-bold text-w-dark mb-1">{{ 'offer.title' | translate }}</h2>
-  <p class="text-w-dark/60 mb-8">{{ 'offer.subtitle' | translate }}</p>
-
   <!-- Car Details -->
   <section class="mb-6">
-    <h3 class="text-sm font-bold uppercase tracking-widest text-w-mid mb-3">
+    <h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-3">
       {{ 'offer.carSection' | translate }}
     </h3>
-    <div class="bg-w-pale rounded-xl p-5 grid grid-cols-2 gap-x-8 gap-y-3">
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.make' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.make() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.model' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.model() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.year' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.year() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.licensePlate' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.licensePlate() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.fuelType' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ ('car.fuel.' + wizardStore.fuelType()) | translate }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.mileage' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.mileage() ? (wizardStore.mileage() + ' km') : '—' }}</span>
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body p-5 grid grid-cols-2 gap-x-8 gap-y-3">
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.make' | translate }}</span>
+          <span class="font-semibold">{{ store.make() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.model' | translate }}</span>
+          <span class="font-semibold">{{ store.model() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.year' | translate }}</span>
+          <span class="font-semibold">{{ store.year() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.horsepower' | translate }}</span>
+          <span class="font-semibold">{{ store.horsepower() ? (store.horsepower() + ' HP') : '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.fuelType' | translate }}</span>
+          <span class="font-semibold">{{ ('car.fuel.' + store.fuelType()) | translate }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.mileage' | translate }}</span>
+          <span class="font-semibold">{{ store.mileage() ? (store.mileage() + ' km') : '—' }}</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Personal Details -->
   <section class="mb-6">
-    <h3 class="text-sm font-bold uppercase tracking-widest text-w-mid mb-3">
+    <h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-3">
       {{ 'offer.personalSection' | translate }}
     </h3>
-    <div class="bg-w-pale rounded-xl p-5 grid grid-cols-2 gap-x-8 gap-y-3">
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.firstName' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.firstName() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.lastName' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.lastName() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.birthDate' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.birthDate() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.email' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.email() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.phone' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.phone() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.address' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.address() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.city' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.city() || '—' }}</span>
-      </div>
-      <div class="flex flex-col">
-        <span class="text-xs text-w-dark/50 uppercase tracking-wide">{{ 'offer.labels.zipCode' | translate }}</span>
-        <span class="font-semibold text-w-dark">{{ wizardStore.zipCode() || '—' }}</span>
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body p-5 grid grid-cols-2 gap-x-8 gap-y-3">
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.firstName' | translate }}</span>
+          <span class="font-semibold">{{ store.firstName() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.lastName' | translate }}</span>
+          <span class="font-semibold">{{ store.lastName() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.birthDate' | translate }}</span>
+          <span class="font-semibold">{{ store.birthDate() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.email' | translate }}</span>
+          <span class="font-semibold">{{ store.email() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.phone' | translate }}</span>
+          <span class="font-semibold">{{ store.phone() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.address' | translate }}</span>
+          <span class="font-semibold">{{ store.address() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.city' | translate }}</span>
+          <span class="font-semibold">{{ store.city() || '—' }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs text-base-content/50 uppercase tracking-wide">{{ 'offer.labels.zipCode' | translate }}</span>
+          <span class="font-semibold">{{ store.zipCode() || '—' }}</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Selected Coverages -->
   <section class="mb-6">
-    <h3 class="text-sm font-bold uppercase tracking-widest text-w-mid mb-3">
+    <h3 class="text-xs font-bold uppercase tracking-widest text-primary mb-3">
       {{ 'offer.coverageSection' | translate }}
     </h3>
-    <div class="bg-w-pale rounded-xl p-5 flex flex-col gap-3">
-      @for (coverage of wizardStore.selectedCoverages(); track coverage.id) {
+    <div class="card bg-base-100 shadow-sm">
+      <div class="card-body p-5 flex flex-col gap-3">
+        @for (coverage of store.selectedCoverages(); track coverage.id) {
+          <div class="flex items-center justify-between">
+            <span class="font-medium">{{ coverage.nameKey | translate }}</span>
+            <span class="font-semibold">€{{ coverage.price.toFixed(2) }}</span>
+          </div>
+        }
+        <div class="divider my-1"></div>
         <div class="flex items-center justify-between">
-          <span class="font-medium text-w-dark">{{ coverage.nameKey | translate }}</span>
-          <span class="text-w-dark font-semibold">€{{ coverage.price.toFixed(2) }}</span>
+          <span class="font-bold text-base-content">{{ 'offer.totalPrice' | translate }}</span>
+          <span class="text-xl font-bold text-primary">
+            €{{ store.totalPrice().toFixed(2) }}
+            <span class="text-sm font-normal text-base-content/50">{{ 'coverage.perMonth' | translate }}</span>
+          </span>
         </div>
-      }
-      <div class="border-t-2 border-w-light mt-2 pt-3 flex items-center justify-between">
-        <span class="font-bold text-w-dark">{{ 'offer.totalPrice' | translate }}</span>
-        <span class="text-xl font-bold text-w-dark">
-          €{{ wizardStore.totalPrice().toFixed(2) }}
-          <span class="text-sm font-normal text-w-dark/50">{{ 'coverage.perMonth' | translate }}</span>
-        </span>
       </div>
     </div>
   </section>
 
-  <!-- Navigation -->
-  <div class="flex justify-between mt-10">
-    <button (click)="onPrev()" class="btn-secondary">
-      ← {{ 'common.previous' | translate }}
-    </button>
-    <button (click)="onSubmit()" class="btn-primary">
-      {{ 'common.submit' | translate }}
-    </button>
-  </div>
 </div>

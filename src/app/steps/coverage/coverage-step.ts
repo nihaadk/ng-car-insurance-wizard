@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { NavigationStore } from '../../store/navigation.store';
-import { WizardStore } from '../../store/wizard.store';
+import { Store } from '../../store/store';
 
 @Component({
   selector: 'app-coverage-step',
@@ -9,18 +8,17 @@ import { WizardStore } from '../../store/wizard.store';
   templateUrl: './coverage-step.html',
 })
 export class CoverageStep {
-  protected wizardStore = inject(WizardStore);
-  protected navigationStore = inject(NavigationStore);
+  protected store = inject(Store);
 
   protected onToggle(id: string): void {
-    this.wizardStore.toggleCoverage(id);
+    this.store.toggleCoverage(id);
   }
 
   protected onNext(): void {
-    this.navigationStore.nextStep();
+    this.store.nextStep();
   }
 
   protected onPrev(): void {
-    this.navigationStore.prevStep();
+    this.store.prevStep();
   }
 }

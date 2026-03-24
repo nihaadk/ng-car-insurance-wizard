@@ -23,7 +23,10 @@
       "electric": "Elektro",
       "hybrid": "Hybrid"
     },
-    "mileage": "Jährliche Laufleistung (km)"
+    "mileage": "Jährliche Laufleistung (km)",
+    "horsepower": "Leistung (PS)",
+    "yearMin": "Baujahr muss 1980 oder später sein.",
+    "yearMax": "Baujahr darf nicht in der Zukunft liegen."
   },
   "personal": {
     "title": "Persönliche Informationen",
@@ -34,12 +37,16 @@
     "phone": "Telefonnummer",
     "address": "Straße & Hausnummer",
     "city": "Stadt",
-    "zipCode": "Postleitzahl"
+    "zipCode": "Postleitzahl",
+    "contactGroup": "Kontaktdaten",
+    "addressGroup": "Adresse"
   },
   "coverage": {
     "title": "Versicherungsdeckungen",
     "subtitle": "Wählen Sie die Deckungen, die zu Ihnen passen",
     "required": "Pflicht",
+    "total": "Gesamt",
+    "deductible": "Selbstbehalt",
     "perMonth": "/ Monat",
     "coverages": {
       "liability": {
@@ -75,9 +82,10 @@
       "make": "Marke",
       "model": "Modell",
       "year": "Baujahr",
-      "licensePlate": "Kennzeichen",
+      "horsepower": "Leistung (PS)",
       "fuelType": "Kraftstoffart",
       "mileage": "Jährliche Laufleistung",
+      "horsepower": "Leistung (PS)",
       "firstName": "Vorname",
       "lastName": "Nachname",
       "birthDate": "Geburtsdatum",
@@ -94,6 +102,9 @@
     "submit": "Angebot erhalten",
     "required": "Dieses Feld ist erforderlich",
     "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  },
+  "sidebar": {
+    "progress": "Ihr Fortschritt"
   },
   "footer": {
     "tagline": "Einfach. Transparent. Zuverlässige Versicherung.",

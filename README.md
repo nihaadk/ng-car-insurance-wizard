@@ -1,14 +1,12 @@
 # ng-car-insurance-wizard
 
-![Architecture](docs/architecture.svg)
-
 ## Description
 
 **ng-car-insurance-wizard** is a modern Angular application that guides users through a step-by-step process to enter vehicle details, personal information, and insurance coverages. The goal is to provide a simple, intuitive, and user-friendly experience for selecting and managing car insurance options.
 
 ## Architecture
 
-The diagram above shows how the store and component layers interact:
+The store and component layers interact as follows:
 
 - **WizardStore** (`providedIn: 'root'`) is composed from three `signalStoreFeature` functions:
   - `withCarFeature()` — car state + `updateCar()`

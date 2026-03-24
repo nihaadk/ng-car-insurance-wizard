@@ -1,67 +1,55 @@
 <div class="max-w-2xl mx-auto">
-  <h2 class="text-2xl font-bold text-w-dark mb-1">{{ 'coverage.title' | translate }}</h2>
-  <p class="text-w-dark/60 mb-8">{{ 'coverage.subtitle' | translate }}</p>
-
   <div class="flex flex-col gap-4">
-    @for (coverage of wizardStore.coverages(); track coverage.id) {
+    @for (coverage of store.coverages(); track coverage.id) {
       <div
-        class="flex items-start justify-between gap-4 p-5 rounded-xl border-2 transition-all duration-200"
-        [class.border-w-mid]="coverage.selected"
-        [class.bg-w-pale]="coverage.selected"
-        [class.border-w-light]="!coverage.selected"
-        [class.bg-white]="!coverage.selected"
+        class="card bg-base-100 shadow-sm border-2 transition-all duration-200 cursor-default"
+        [class.border-primary]="coverage.selected"
+        [class.border-base-300]="!coverage.selected"
+        [class.bg-base-200]="coverage.selected"
       >
-        <div class="flex-1">
-          <div class="flex items-center gap-2 mb-1">
-            <span class="font-semibold text-w-dark">{{ coverage.nameKey | translate }}</span>
-            @if (coverage.required) {
-              <span
-                class="text-xs bg-w-dark text-w-mid px-2 py-0.5 rounded-full font-medium"
-              >{{ 'coverage.required' | translate }}</span>
-            }
+        <div class="card-body p-5 flex-row items-start gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="font-semibold text-base-content">{{ coverage.nameKey | translate }}</span>
+              @if (coverage.required) {
+                <span class="badge badge-neutral badge-sm">{{ 'coverage.required' | translate }}</span>
+              }
+            </div>
+            <p class="text-sm text-base-content/60 mb-2">{{ coverage.descriptionKey | translate }}</p>
+            <div class="flex items-center gap-4 flex-wrap">
+              <span class="text-sm font-bold text-base-content">
+                €{{ coverage.price.toFixed(2) }}
+                <span class="font-normal text-base-content/50">{{ 'coverage.perMonth' | translate }}</span>
+              </span>
+              @if (coverage.deductible !== null) {
+                <span class="text-sm text-base-content/60">
+                  {{ 'coverage.deductible' | translate }}:
+                  <span class="font-semibold text-base-content">€{{ coverage.deductible }}</span>
+                </span>
+              }
+            </div>
           </div>
-          <p class="text-sm text-w-dark/60">{{ coverage.descriptionKey | translate }}</p>
-          <p class="text-sm font-bold text-w-dark mt-2">
-            €{{ coverage.price.toFixed(2) }}
-            <span class="font-normal text-w-dark/50">{{ 'coverage.perMonth' | translate }}</span>
-          </p>
-        </div>
 
-        <!-- Toggle Button -->
-        <button
-          (click)="onToggle(coverage.id)"
-          [disabled]="coverage.required"
-          class="relative flex-shrink-0 w-12 h-6 rounded-full transition-all duration-300 focus:outline-none cursor-pointer disabled:cursor-not-allowed"
-          [class.bg-w-mid]="coverage.selected"
-          [class.bg-w-light]="!coverage.selected"
-          [attr.aria-checked]="coverage.selected"
-          role="switch"
-        >
-          <span
-            class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform duration-300"
-            [class.translate-x-6]="coverage.selected"
-          ></span>
-        </button>
+          <input
+            type="checkbox"
+            class="toggle toggle-primary mt-1 flex-shrink-0"
+            [checked]="coverage.selected"
+            (click)="onToggle(coverage.id)"
+            [disabled]="coverage.required"
+          />
+        </div>
       </div>
     }
   </div>
 
   <!-- Total -->
-  <div class="mt-6 p-4 bg-w-dark rounded-xl flex items-center justify-between">
-    <span class="text-w-pale font-semibold">Total</span>
-    <span class="text-w-mid text-xl font-bold">
-      €{{ wizardStore.totalPrice().toFixed(2) }}
-      <span class="text-sm font-normal text-w-pale/60">{{ 'coverage.perMonth' | translate }}</span>
-    </span>
-  </div>
-
-  <!-- Navigation -->
-  <div class="flex justify-between mt-10">
-    <button (click)="onPrev()" class="btn-secondary">
-      ← {{ 'common.previous' | translate }}
-    </button>
-    <button (click)="onNext()" class="btn-primary">
-      {{ 'common.next' | translate }} →
-    </button>
+  <div class="card bg-primary text-primary-content mt-6 shadow-md">
+    <div class="card-body p-4 flex-row items-center justify-between">
+      <span class="font-semibold">{{ 'coverage.total' | translate }}</span>
+      <span class="text-xl font-bold">
+        €{{ store.totalPrice().toFixed(2) }}
+        <span class="text-sm font-normal opacity-70">{{ 'coverage.perMonth' | translate }}</span>
+      </span>
+    </div>
   </div>
 </div>

@@ -1,0 +1,27 @@
+<div class="bg-base-100 border-t border-base-300 px-6 lg:px-10 py-3 flex items-center justify-between">
+
+  @if (!isFirst()) {
+    <button type="button" (click)="onPrev()" class="btn btn-secondary gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+      {{ 'common.previous' | translate }}
+    </button>
+  } @else {
+    <span></span>
+  }
+
+  <button type="button" (click)="onNext()" class="btn btn-primary gap-2">
+    {{ (isLast() ? 'common.submit' : 'common.next') | translate }}
+    @if (!isLast()) {
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    } @else {
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    }
+  </button>
+
+</div>

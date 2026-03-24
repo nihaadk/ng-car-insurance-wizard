@@ -1,33 +1,70 @@
-<nav class="bg-w-dark text-w-pale shadow-md px-6 py-3 flex items-center justify-between">
-  <div class="flex items-center gap-2">
-    <svg class="w-7 h-7 text-w-mid" viewBox="0 0 24 24" fill="currentColor">
-      <path
-        d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"
-      />
-      <circle cx="7.5" cy="14.5" r="1.5" />
-      <circle cx="16.5" cy="14.5" r="1.5" />
-    </svg>
-    <span class="text-xl font-bold tracking-wide">{{ 'nav.logo' | translate }}</span>
+<div class="navbar bg-base-100 text-base-content shadow-sm border-b border-base-300 px-4 sticky top-0 z-40">
+  <div class="navbar-start gap-2">
+    <!-- Hamburger — only on mobile -->
+    <label for="sidebar-drawer" class="btn btn-ghost btn-circle lg:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </label>
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-primary/25 flex items-center justify-center">
+        <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-5h14v5z"
+          />
+          <circle cx="7.5" cy="14.5" r="1.5" />
+          <circle cx="16.5" cy="14.5" r="1.5" />
+        </svg>
+      </div>
+      <div class="flex flex-col leading-tight">
+        <span class="text-base font-bold">{{ 'nav.logo' | translate }}</span>
+        <span class="text-xs text-base-content/50">Insurance Wizard</span>
+      </div>
+    </div>
   </div>
 
-  <div class="flex items-center gap-1 bg-w-dark/50 rounded-full p-1">
+  <div class="navbar-end gap-2">
+    <!-- Dark mode toggle -->
     <button
-      (click)="switchLanguage('en')"
-      [class.bg-w-mid]="currentLang() === 'en'"
-      [class.text-w-dark]="currentLang() === 'en'"
-      [class.text-w-pale]="currentLang() !== 'en'"
-      class="px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer"
+      (click)="toggleTheme()"
+      class="btn btn-ghost btn-circle"
+      [title]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
     >
-      EN
+      @if (isDark()) {
+        <!-- Sun icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        </svg>
+      } @else {
+        <!-- Moon icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+      }
     </button>
-    <button
-      (click)="switchLanguage('de')"
-      [class.bg-w-mid]="currentLang() === 'de'"
-      [class.text-w-dark]="currentLang() === 'de'"
-      [class.text-w-pale]="currentLang() !== 'de'"
-      class="px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer"
-    >
-      DE
-    </button>
+
+    <!-- Language switcher -->
+    <div class="join rounded-full border border-base-300 bg-base-200 p-1">
+      <button
+        (click)="switchLanguage('en')"
+        class="join-item btn btn-xs rounded-full transition-all"
+        [class.btn-primary]="currentLang() === 'en'"
+        [class.btn-ghost]="currentLang() !== 'en'"
+      >
+        EN
+      </button>
+      <button
+        (click)="switchLanguage('de')"
+        class="join-item btn btn-xs rounded-full transition-all"
+        [class.btn-primary]="currentLang() === 'de'"
+        [class.btn-ghost]="currentLang() !== 'de'"
+      >
+        DE
+      </button>
+    </div>
   </div>
-</nav>
+</div>

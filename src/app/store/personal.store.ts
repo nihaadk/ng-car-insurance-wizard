@@ -1,15 +1,7 @@
 import { patchState, signalStoreFeature, withMethods, withState } from '@ngrx/signals';
+import { PersonalState } from '../models/personal.model';
 
-export interface PersonalState {
-  firstName: string;
-  lastName: string;
-  birthDate: string;
-  email: string;
-  phone: string;
-  address: string;
-  city: string;
-  zipCode: string;
-}
+export type { PersonalState };
 
 const initialPersonalState: PersonalState = {
   firstName: '',
